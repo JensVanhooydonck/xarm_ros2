@@ -14,7 +14,7 @@
     model1300:=false
     inertial_params_filename:=''
     kinematics_params_filename:=''
-    hard_interface:='PositionJointInterface' "
+    hard_interface:='PositionJointInterface' initial_positions_file:='' "
     >
 
     <!-- include uf850 relative macros: -->
@@ -38,7 +38,7 @@
           joint3_lower_limit="${-pi*0.99}" joint3_upper_limit="${0.061087}"
           joint4_lower_limit="${-pi*0.99}" joint4_upper_limit="${pi*0.99}"
           joint5_lower_limit="${-2.1642}" joint5_upper_limit="${2.1642}"
-          joint6_lower_limit="${-pi*0.99}" joint6_upper_limit="${pi*0.99}"/>
+          joint6_lower_limit="${-pi*0.99}" joint6_upper_limit="${pi*0.99}" initial_positions_file="${initial_positions_file}"/>
       </xacro:if>
       <xacro:uf850_urdf prefix="${prefix}"
         joint1_lower_limit="${-pi*0.99}" joint1_upper_limit="${pi*0.99}"
@@ -57,7 +57,7 @@
           ros2_control_plugin="${ros2_control_plugin}"
           hw_ns="${hw_ns}" add_gripper="${add_gripper}"
           robot_ip="${robot_ip}" report_type="${report_type}"
-          baud_checkset="${baud_checkset}" default_gripper_baud="${default_gripper_baud}" />
+          baud_checkset="${baud_checkset}" default_gripper_baud="${default_gripper_baud}" initial_positions_file="${initial_positions_file}" />
       </xacro:if>
       <xacro:uf850_urdf prefix="${prefix}" model1300="${model1300}"
         inertial_params_filename="${inertial_params_filename}"
