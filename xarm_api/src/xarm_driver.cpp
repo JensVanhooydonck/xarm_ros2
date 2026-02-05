@@ -207,6 +207,7 @@ namespace xarm_api
         arm->release_connect_changed_callback(true);
         arm->release_report_data_callback(true);
         arm->register_connect_changed_callback(std::bind(&XArmDriver::_report_connect_changed_callback, this, std::placeholders::_1, std::placeholders::_2));
+        arm->set_linear_spd_limit_factor(2.0);
         arm->register_report_data_callback(std::bind(&XArmDriver::_report_data_callback, this, std::placeholders::_1));
         arm->connect();
 
