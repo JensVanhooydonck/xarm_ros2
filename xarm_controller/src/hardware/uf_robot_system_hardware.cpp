@@ -338,11 +338,15 @@ namespace uf_robot_hardware
 
     hardware_interface::return_type UFRobotSystemHardware::write(const rclcpp::Time & time, const rclcpp::Duration &period)
     {
-        if (_need_reset()) {
-            initialized_ = false;
-            _deactivate_controller();
-            return hardware_interface::return_type::OK;
+        if (xarm_driver_.curr_mode == XARM_MODE::TEACH_JOINT || xarm_driver_.curr_mode == XARM_MODE::POSE) {
+          return hardware_interface::return_type::OK;
         }
+        // if (_need_reset()) {
+        //     initialized_ = false;
+        //     std::cout << "Need reset, deactivate controller!" << std::endl;
+        //     _deactivate_controller();
+        //     return hardware_interface::return_type::OK;
+        // }
         initialized_ = true;
         if(reactivate_controller_later_)
         {
