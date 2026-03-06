@@ -258,8 +258,8 @@ namespace uf_robot_hardware
         req_switch_controller_ = std::make_shared<controller_manager_msgs::srv::SwitchController::Request>();
         res_switch_controller_ = std::make_shared<controller_manager_msgs::srv::SwitchController::Response>();
 
-        client_list_controller_ = hw_node_->create_client<controller_manager_msgs::srv::ListControllers>("/controller_manager/list_controllers");
-        client_switch_controller_ = hw_node_->create_client<controller_manager_msgs::srv::SwitchController>("/controller_manager/switch_controller");
+        client_list_controller_ = hw_node_->create_client<controller_manager_msgs::srv::ListControllers>("controller_manager/list_controllers");
+        client_switch_controller_ = hw_node_->create_client<controller_manager_msgs::srv::SwitchController>("controller_manager/switch_controller");
 
         for (uint i = 0; i < position_states_.size(); i++) {
             if (std::isnan(position_states_[i])) {
